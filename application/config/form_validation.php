@@ -51,7 +51,6 @@ $config = [
 							'field' => 'title',
 							'label' => 'name',
 							'rules' => 'required|min_length[2]'
-        
 							],
 							[
 							'field' => 'description',
@@ -78,12 +77,6 @@ $config = [
         
 							],
 							[
-							'field' => 'compare_price',
-							'label' => 'Compare price',
-							'rules' => 'is_natural'
-        
-							],
-							[
 							'field' => 'sku',
 							'label' => 'SKU',
 							'rules' => ''
@@ -103,13 +96,15 @@ $config = [
 							[
 							'field' => 'category',
 							'label' => 'Category',
-							'rules' => 'required|is_natural_no_zero'
+							'rules' => 'required|is_natural'
  							],
  							[
- 							'field' => 'shipping',
- 							'label' => 'shipping cost',
- 							'rules' => 'is_natural'
- 							] 
+							'field' => 'thumbnail',
+							'label' => 'Product image',
+							'rules' => 'required'
+ 							]
+
+ 							
 
 		]
 ];

@@ -1,3 +1,20 @@
-.error-msg{
+.error-msg,.success-msg{
 	display: none;
+}
+.progressBar{
+
+	padding: 2px;
+	text-align: center;
+	display: none;
+
+}
+
+.progressBar .bar{
+	background-color: #000 ;
+	height: 5px;
+
+}
+.progressBar .bar .percent{
+
+	color: #000;
 }

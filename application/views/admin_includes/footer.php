@@ -78,6 +78,7 @@
               var ajax_url = "<?php echo base_url(); ?>";
            
            </script>
+           <script src='<?php echo base_url('assets/js/jquery.form.js'); ?>'></script>
            <script src='<?php echo base_url('assets/js/script.js'); ?>'></script>
    
 </body>

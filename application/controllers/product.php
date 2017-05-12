@@ -17,7 +17,7 @@ class Product extends CI_Controller
 		}
 		
 
-		//$this->load->model('categoryModel');
+		$this->load->model('productModel');
 
 	}
 
@@ -28,6 +28,20 @@ class Product extends CI_Controller
 
 		$this->load->view('admin_includes/template',$data);
 
+	}
+
+	public function add_product() {
+
+		if ($this->input->post('add_product')) {
+			
+			$result = $this->productModel->add_product();
+
+			echo json_encode($result);
+
+		} else {
+
+			$this->index();
+		}
 	}
 
 	public function delete(){
@@ -54,6 +68,41 @@ class Product extends CI_Controller
 
 
 	}
+
+	public function upload_image() {
+          
+				$config['upload_path']   = './uploads/product/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['encrypt_name']  = TRUE;
+				$config['remove_spaces'] = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('file')) {
+
+                $data = $this->upload->data();
+
+				$config['image_library']  = 'gd2';
+				$config['source_image']   = './uploads/product'.$data['file_name'];
+				$config['new_image']      = './uploads/product/';
+				$config['maintain_ratio'] = TRUE;
+				$config['width']          = 400;
+				$config['height']         = 400;
+				$config['overwrite']      = TRUE;
+				
+				$this->load->library('image_lib', $config); 
+				if (!$this->image_lib->resize()) {
+				    return 'There was en error with image uploading, try later!';
+				}
+
+				// return $data['file_name'];
+				$this->db->insert('product_images',['name'=>$data['file_name'],'user_id'=>$this->session->userdata('admin_id')]);
+            }
+	}
+
+
+	
+
 
 
 }

@@ -18,7 +18,7 @@ class Category extends CI_Controller
 		}
 		
 
-		//$this->load->model('categoryModel');
+		$this->load->model('categoryModel');
 
 	}
 
@@ -27,7 +27,31 @@ class Category extends CI_Controller
 
 		$data['main_content'] = 'admin/create_category';
 
+		$data['categories'] = $this->categoryModel->allCategory();
+
 		$this->load->view('admin_includes/template',$data);
+
+	}
+
+
+	public function store_category() {
+
+
+		if ($this->input->post('category')) {
+
+
+			unset($_POST['category']);
+
+			// print_r($_POST);
+			$result = $this->categoryModel->create_category();
+
+			echo json_encode($result);
+
+			
+		} else {
+
+			$this->dashboard();
+		}
 
 	}
 

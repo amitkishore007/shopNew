@@ -49,26 +49,7 @@ class Admin extends CI_Controller
 
 	}
 
-	public function store_category() {
 
-
-		if ($this->input->post('category')) {
-
-
-			unset($_POST['category']);
-
-			// print_r($_POST);
-			$result = $this->adminModel->create_category();
-
-			echo json_encode($result);
-
-			
-		} else {
-
-			$this->dashboard();
-		}
-
-	}
 
 
 
@@ -87,17 +68,4 @@ class Admin extends CI_Controller
 	}
 
 
-	public function add_product() {
-
-		if ($this->input->post('add_product')) {
-			
-			$result = $this->adminModel->add_product();
-
-			echo json_encode($result);
-
-		} else {
-
-			$this->index();
-		}
-	}
 }
