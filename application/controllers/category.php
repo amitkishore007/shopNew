@@ -88,7 +88,7 @@ class Category extends CI_Controller
 
 		} else {
 
-			return redirect('index');
+			return redirect('category');
 		}
 
 
@@ -125,6 +125,34 @@ class Category extends CI_Controller
 		$data['main_content'] = 'admin/category/category_list';
 		$data['categories'] = $this->categoryModel->fetchCategoryTree();
 		$this->load->view('admin_includes/template',$data);
+
+
+	}
+
+
+	public function home_category() {
+
+		$data['main_content'] = 'admin/category/home_category';
+
+		$data['categories'] = $this->categoryModel->home_category();
+
+	// print_r($data['categories']);
+		$this->load->view('admin_includes/template',$data);
+	}
+
+	public function set_home_category() {
+
+		if ($this->input->post()) {
+			
+			$output = $this->categoryModel->set_home_category();
+
+			echo $output;
+
+
+		} else {
+
+			return redirect('category');
+		}
 
 
 	}

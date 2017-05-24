@@ -729,29 +729,8 @@ $('.page_status').click(function() {
    if($(this).is(':checked')) { 
 
    	var id = $(this).attr('data-aboutId');
-   	
-   	$.ajax({
 
-   		url : ajax_url+"about/change_status",
-   		type :'POST',
-   		data : {'change':'status' ,id:id},
-
-   		success :function (html) {
-
-   			console.log(html);
-
-   			if (html=='true') {
-
-   				toastr['success']('successfully update About page','success');
-
-   			} else {
-
-   				toastr['error']('There was an error, try later','Error');
-
-   			}
-
-   		}
-   	});
+   	change_status_checkbox(id,ajax_url+"about/change_status",'active','successfully updated the about status','Error occured, try later');  	
 
    }
 
@@ -766,33 +745,8 @@ $(".delete-logo").on("confirmed.bs.confirmation",function(){
 
 	$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
 
-	$.ajax({
+	delete_image(slide_id,ajax_url+"logo/delete",'successfully deleted the logo','Error occured, try later');
 
-		url  : ajax_url+"logo/delete",
-		type : 'POST',
-		data : {'delete':'DELETE',id:logo_id},
-		
-		success : function(html){
-
-			console.log(html);
-			
-
-			if (html=='success') {
-
-				toastr['success']('Successfully deleted logo ','success');
-
-				$('tr#row_'+logo_id).fadeOut();
-
-			
-			} else {
-				toastr['error']('Error occured, try later','');
-
-				$('.ajax-loader').hide();
-
-			}
-		}
-
-	});
 
 });
 
@@ -803,35 +757,11 @@ $(".delete-slide").on("confirmed.bs.confirmation",function(){
 
 	$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
 
-	$.ajax({
+	delete_image(slide_id,ajax_url+"slider/delete",'successfully deleted the slide','Error occured, try later');
 
-		url  : ajax_url+"slider/delete",
-		type : 'POST',
-		data : {'delete':'DELETE',id:slide_id},
-		
-		success : function(html){
-
-			console.log(html);
-			
-
-			if (html=='success') {
-
-				toastr['success']('Successfully deleted slide ','success');
-
-				$('tr#row_'+slide_id).fadeOut();
-
-			
-			} else {
-				toastr['error']('Error occured, try later','');
-
-				$('.ajax-loader').hide();
-
-			}
-		}
-
-	});
 
 });
+
 
 
 $('.logo_status').click(function() {
@@ -839,29 +769,9 @@ $('.logo_status').click(function() {
    if($(this).is(':checked')) { 
 
    	var id = $(this).attr('data-logoId');
-   	
-   	$.ajax({
-
-   		url : ajax_url+"logo/change_status",
-   		type :'POST',
-   		data : {'change':'status' ,id:id},
-
-   		success :function (html) {
-
-   			console.log(html);
-
-   			if (html=='true') {
-
-   				toastr['success']('successfully update About page','success');
-
-   			} else {
-
-   				toastr['error']('There was an error, try later','Error');
-
-   			}
-
-   		}
-   	});
+ 	
+ 	change_status_checkbox(id,ajax_url+"logo/change_status",'active','successfully activated the logo','Error occured, try later');  	
+   
 
    }
 
@@ -876,62 +786,282 @@ $('.slide_status').click(function() {
 
    	// set status = 1
 
-   	
-   	$.ajax({
-
-   		url : ajax_url+"slider/change_status",
-   		type :'POST',
-   		data : {'change':'active' ,id:id},
-
-   		success :function (html) {
-
-   			console.log(html);
-
-   			if (html=='true') {
-
-   				toastr['success']('successfully update About page','success');
-
-   			} else {
-
-   				toastr['error']('There was an error, try later','Error');
-
-   			}
-
-   		}
-   	});
+   	change_status_checkbox(id,ajax_url+"slider/change_status",'active','successfully activated the slide','Error occured, try later');
+  
 
    } else {
 
    	// set status = 0
+	change_status_checkbox(id,ajax_url+"slider/change_status",'inactive','successfully deactivated the slide','Error occured, try later');
 
-   	$.ajax({
+   }
 
-   		url : ajax_url+"slider/change_status",
-   		type :'POST',
-   		data : {'change':'inactive' ,id:id},
+});
 
-   		success :function (html) {
+$('.banner_status').click(function() {
+   
+   	var id = $(this).attr('data-bannerId');
+   
+   if($(this).is(':checked')) { 
 
-   			console.log(html);
+   	// set status = 1
 
-   			if (html=='true') {
+   	change_status_checkbox(id,ajax_url+"banner/change_status",'active','successfully activated the banner','Error occured, try later');
+  
 
-   				toastr['success']('successfully update About page','success');
+   } else {
 
-   			} else {
-
-   				toastr['error']('There was an error, try later','Error');
-
-   			}
-
-   		}
-   	});
+   	// set status = 0
+	change_status_checkbox(id,ajax_url+"banner/change_status",'inactive','successfully deactivated the banner','Error occured, try later');
 
    }
 
 });
 
 
+$(".delete-banner").on("confirmed.bs.confirmation",function(){
+
+
+	var banner_id = $(this).attr('data-bannerId');
+
+	$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
+
+	delete_image(banner_id,ajax_url+"banner/delete",'Successfully deleted the banner','Error occured, try later');
 
 
 });
+
+	$('.banner-position').on('change',function(){
+
+		var location = $(this).val();
+		var id = $(this).attr('data-bannerId');
+		$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
+
+
+		$.ajax({
+
+	   		url : ajax_url+"banner/set_location",
+	   		type :'POST',
+	   		data : {'location':'change' ,location:location,id:id},
+
+	   		success :function (html) {
+
+	   			console.log(html);
+	   			$('.ajax-loader').hide();
+
+	   			if (html=='success') {
+
+	   				toastr['success']('successfully updated the banner','success');
+
+	   			} else {
+
+	   				toastr['error']('Error occured, try later !','Error');
+
+	   			}
+
+	   		}
+	   	});
+
+	});
+
+
+
+
+	$('.view-order').on('blur',function(){
+
+		var banner_id = $(this).attr('data-bannerId');
+		var order     = $(this).val();
+
+	    $(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
+
+
+		
+	$.ajax({
+
+		url  : ajax_url+'banner/set_order',
+		type : 'POST',
+		data : {'order_view':'update',banner_id:banner_id,order:order},
+		
+		success : function(html){
+
+			console.log(html);
+			
+			$('.ajax-loader').hide();
+
+			if (html=='success') {
+
+				toastr['success']('successfully updated the order','success');
+
+		
+			} else {
+				toastr['error']('Error occured, try later !','Error');
+
+				
+
+			}
+		}
+
+	});
+
+
+	});
+
+
+	$('.home-category').on('change',function(){
+
+		var type = $(this).attr('data-type');
+		var number = $(this).attr('data-number');
+		var cat_id = $(this).val();
+
+		$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
+
+
+
+		console.log(type+" "+number+" "+cat_id);
+
+		$.ajax({
+
+		url  : ajax_url+"category/set_home_category",
+		type : 'POST',
+		data : {'home_category':'set',type:type,number:number,cat_id:cat_id},
+		
+		success : function(html){
+
+			console.log(html);
+			
+			$('.ajax-loader').hide();
+
+			if (html=='success') {
+
+				toastr['success']('successfully updated category','success');
+			
+			} else {
+
+				toastr['error']('successfully updated category','Error');
+
+
+			}
+		}
+
+	});
+
+
+	});
+
+
+	$('.hot-sale').on('switchChange.bootstrapSwitch', function(e, state) { 
+
+		var product_id = $(this).attr('data-productId');
+		$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
+
+
+		if (state==true) {
+
+			//set hot sale to 1
+
+			change_status_checkbox(product_id,ajax_url+"product/set_hot_sale",'active','successfully added product in hot sale','Error occured')
+
+		} else {
+
+			// set hot sale to 0
+			change_status_checkbox(product_id,ajax_url+"product/set_hot_sale",'inactive','successfully removed product from hot sale','Error occured')
+
+
+		}
+
+		$('.ajax-loader').hide();
+		
+	});
+
+
+	$('.product-status').on('switchChange.bootstrapSwitch', function(e, state) { 
+
+		var product_id = $(this).attr('data-productId');
+		
+		$(this).after("<img class='ajax-loader' src='"+ajax_url+"assets/img/ajax-loader.gif'>");
+
+
+		if (state==true) {
+
+			//set hot sale to 1
+
+			change_status_checkbox(product_id,ajax_url+"product/change_status",'active','successfully updated product status','Error occured')
+
+			$('#status_'+product_id).html('Published');
+			$('#status_'+product_id).removeClass('text-danger').addClass('text-success');
+		
+
+		} else {
+
+			// set hot sale to 0
+			change_status_checkbox(product_id,ajax_url+"product/change_status",'inactive','successfully updated product status','Error occured')
+			
+			$('#status_'+product_id).html('Not published');
+			$('#status_'+product_id).removeClass('text-success').addClass('text-danger');
+
+
+		}
+
+		$('.ajax-loader').hide();
+		
+	});
+
+});
+
+
+function delete_image(id,url,success='',error='') {
+	$.ajax({
+
+		url  : url,
+		type : 'POST',
+		data : {'delete':'DELETE',id:id},
+		
+		success : function(html){
+
+			console.log(html);
+			
+
+			if (html=='success') {
+
+				toastr['success'](success,'success');
+
+				$('tr#row_'+id).fadeOut();
+
+			
+			} else {
+				toastr['error'](error,'');
+
+				$('.ajax-loader').hide();
+
+			}
+		}
+
+	});
+}
+
+function change_status_checkbox(id,url,status,success='',error='') {
+
+		$.ajax({
+
+   		url : url,
+   		type :'POST',
+   		data : {'change':status ,id:id},
+
+   		success :function (html) {
+
+   			console.log(html);
+
+   			if (html=='true') {
+
+   				toastr['success'](success,'success');
+
+   			} else {
+
+   				toastr['error'](error,'Error');
+
+   			}
+
+   		}
+   	});
+
+}

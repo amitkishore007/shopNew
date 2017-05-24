@@ -1,24 +1,22 @@
 <!-- Block slideshow  -->
 
 	<section class="so-slideshow ">
+		<?php if(isset($slides)): ?>
 		<div id="so-slideshow">
 			<div class="module slideshow no-margin">
 				<div class="yt-content-slider yt-content-slider--arrow1"  data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column0="1" data-items_column1="1" data-items_column2="1"  data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="yes" data-loop="no" data-hoverpause="yes">
+					<?php foreach($slides as $slide): ?>
 					<div class="yt-content-slide">
-						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/slider/home6/slider-1.jpg" alt="slider1" class="img-responsive"></a>
+						<a href="#"><img src="<?php echo base_url(); ?>uploads/<?php echo $slide->slide; ?>" alt="slider1" class="img-responsive"></a>
 					</div>
-					<div class="yt-content-slide">
-						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/slider/home6/slider-2.jpg" alt="slider2" class="img-responsive"></a>
-					</div>
-					<div class="yt-content-slide">
-						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/slider/home6/slider-3.jpg" alt="slider3" class="img-responsive"></a>
-					</div>
+					<?php endforeach; ?>
 				</div>
 				<div class="loadeding"></div>
 			</div>
-			
+		<?php endif; ?>
 			
 		</div>
+
 		<div class="module static-image">
 			<ul class="eg-list-float blank">
 				<li>
@@ -42,6 +40,7 @@
 						</div>
 					</div>
 				</li>
+				
 			</ul>
 		</div>		
 	</section>

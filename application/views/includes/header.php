@@ -276,18 +276,14 @@
 												<div class="container">
 													<ul class="megamenu">
 															<?php if(count($categories)): ?>
-																<?php $array = array(); ?>
+																
 															<?php foreach($categories as $category):  ?>
 															<li class="item-vertical style1 with-sub-menu hover">
 																<p class="close-menu"></p>
 																<?php if($category['parent_id']==0): ?>
 																
-																	<?php $array['id']        = $category['id']; ?>
-																	<?php $array['name']      = $category['name']; ?>
-																	<?php $array['parent_id'] = $category['parent_id'];  ?>
-																	
 																<a href="#" class="clearfix">
-																	<img src="<?php echo base_url(); ?>assets/public/image/theme/icons/9.png" alt="icon">
+																	<!-- <img src="<?php //echo base_url(); ?>assets/public/image/theme/icons/9.png" alt="icon"> -->
 																	<span><?php echo $category['name']; ?></span>
 																	<b class="caret"></b>
 																</a>
@@ -326,8 +322,6 @@
 																					<?php endif; ?>
 																			   <?php endforeach; ?>
 
-																					
-																					
 																				</div>
 																			</div>
 																		</div>
@@ -369,650 +363,52 @@
 											<div class="megamenu-pattern">
 												<div class="container">
 													<ul class="megamenu " data-transition="slide" data-animationtime="250">
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="category.html" class="clearfix">
-																<strong>Electronic</strong>
-																<span class="label"></span>
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; display: none;">
-																<div class="content">
-																	<div class="row">
-																		<div class="col-sm-12">
-																			<div class="row">
-																				<div class="col-md-3 img img1">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img1.jpg" alt="banner1"></a>
-																				</div>
-																				<div class="col-md-3 img img2">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img2.jpg" alt="banner2"></a>
-																				</div>
-																				<div class="col-md-3 img img3">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img3.jpg" alt="banner3"></a>
-																				</div>
-																				<div class="col-md-3 img img4">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img4.jpg" alt="banner4"></a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row">
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Mobiles</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Samsung</a></li>
-																							<li><a href="category.html"  class="main-menu">Lenovo</a></li>
-																							<li><a href="category.html"  class="main-menu">Motorola</a></li>
-																							<li><a href="category.html"  class="main-menu">Apple</a></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Mobiles Accessories</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Mobile Cases</a></li>
-																							<li><a href="category.html"  class="main-menu">Headphones</a></li>
-																							<li><a href="category.html"  class="main-menu">Screen Guards</a></li>
-																							<li><a href="category.html"  class="main-menu">Selfie Sticks</a></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Laptops</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Business Laptops</a></li>
-																							<li><a href="category.html"  class="main-menu">Laptop Bags</a></li>
-																							<li><a href="category.html"  class="main-menu">Keyboards</a></li>
-
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Televisions</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Sony</a></li>
-																							<li><a href="category.html"  class="main-menu">Panasonic</a></li>
-																							<li><a href="category.html"  class="main-menu">LG</a></li>
-																							<li><a href="category.html"  class="main-menu">Micromax</a></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
 														
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="#" class="clearfix">
-																<strong>Appliances</strong>
-																<img class="label-hot" src="<?php echo base_url(); ?>assets/public/image/theme/icons/hot-icon.png" alt="icon items">
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; right: auto;">
-																<div class="content" >
-																	<div class="row">
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Telivisions</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Sony </a></li>
-																						<li><a href="category.html">Samsung</a></li>
-																						<li><a href="category.html">LG</a></li>
-																					</ul>
+														<?php if(isset($categories)): ?>
+															<?php foreach ($categories as $category): ?>
+															<li class="with-sub-menu hover">
+																<?php if($category['parent_id']==0): ?>
+																<p class="close-menu"></p>
+																<a href="#" class="clearfix">
+																	<strong><?php echo ucwords($category['name']); ?></strong>
+																	<!-- <img class="label-hot" src="<?php //echo base_url(); ?>assets/public/image/theme/icons/hot-icon.png" alt="icon items"> -->
+																	<b class="caret"></b>
+																</a>
+																<?php endif; ?>
+																<div class="sub-menu" style="width: 100%; right: auto;">
+																	<div class="content" >
+																		<div class="row">
+																			<?php foreach($categories as $child): ?>
+																			<?php if($child['parent_id']==$category['id']): ?>
+																			<div class="col-md-3">
+																				<div class="column">
 																					
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Washing Machines</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Single-door </a></li>
-																						<li><a href="category.html">Double-door</a></li>
-																						<li><a href="category.html">Triple-door </a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Kitchen Appliances</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Microwave Ovens</a></li>
-																						<li><a href="category.html">Mixers, juicers, grinders</a></li>
-																						<li><a href="category.html">Water purifiers</a></li>
-																						<li><a href="category.html">Electric Jugs</a></li>
+																					<a href="#" class="title-submenu"><?php echo ucwords($child['name']); ?></a>
 																					
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">
-Small Home Appliances</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Irons</a></li>
-																						<li><a href="category.html">Fans</a></li>
-																						<li><a href="category.html">Air Coolers</a></li>
-																						<li><a href="category.html">Air Purifiers</a></li>
-																						<li><a href="category.html">Vacuum Cleaners</a></li>
-																						<li><a href="category.html">Landline Phones</a></li>
-																						<li><a href="category.html">Lightings</a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="#" class="clearfix">
-																<strong>Men</strong>
-																<img class="label-hot" src="<?php echo base_url(); ?>assets/public/image/theme/icons/hot-icon.png" alt="icon items">
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; right: auto;">
-																<div class="content" >
-																	<div class="row">
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Footwear</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Sports Shoes </a></li>
-																						<li><a href="category.html">Casual Shoes</a></li>
-																						<li><a href="category.html">Formal Shoes</a></li>
-																					</ul>
-																					
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Clothing</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">T-Shirts </a></li>
-																						<li><a href="category.html">Shirts</a></li>
-																						<li><a href="category.html">Jeans </a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Watches</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Fastrack</a></li>
-																						<li><a href="category.html">Casio</a></li>
-																						<li><a href="category.html">Titan</a></li>
-																						<li><a href="category.html">Sonata</a></li>
-																					
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">
-Accessories</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Backpack</a></li>
-																						<li><a href="category.html">Wallets</a></li>
-																						<li><a href="category.html">Belts</a></li>
-																						<li><a href="category.html">Sunglasses</a></li>
-																						<li><a href="category.html">Luggage & Travel</a></li>
-																						<li><a href="category.html">Jwellery</a></li>
-																						
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="category.html" class="clearfix">
-																<strong>Women</strong>
-																<span class="label"></span>
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; display: none;">
-																<div class="content">
-																	<div class="row">
-																		<div class="col-sm-12">
-																			<div class="row">
-																				<div class="col-md-3 img img1">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img1.jpg" alt="banner1"></a>
-																				</div>
-																				<div class="col-md-3 img img2">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img2.jpg" alt="banner2"></a>
-																				</div>
-																				<div class="col-md-3 img img3">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img3.jpg" alt="banner3"></a>
-																				</div>
-																				<div class="col-md-3 img img4">
-																					<a href="category.html"><img src="<?php echo base_url(); ?>assets/public/image/demo/cms/img4.jpg" alt="banner4"></a>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row">
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Clothing</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Western Wear </a></li>
-																							<li><a href="category.html"  class="main-menu">Winter Wear</a></li>
-																							<li><a href="category.html"  class="main-menu">Sports Wear</a></li>
-																							<li><a href="category.html"  class="main-menu">Ethnic Wear</a></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Footwear</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Flats</a></li>
-																							<li><a href="category.html"  class="main-menu">Heels</a></li>
-																							<li><a href="category.html"  class="main-menu">Sports Shoes</a></li>
-																							<li><a href="category.html"  class="main-menu">Casual Shoes</a></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Beauty &Grooming</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Make Up</a></li>
-																							<li><a href="category.html"  class="main-menu">Skin Care</a></li>
-																							<li><a href="category.html"  class="main-menu">Hair Care</a></li>
+																					<div>
 
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="category.html" class="title-submenu">Jewellery</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"  class="main-menu">Precious Jewellery</a></li>
-																							<li><a href="category.html"  class="main-menu">Artificial Jewellery</a></li>
-																							<li><a href="category.html"  class="main-menu">Silver Jewellery</a></li>
+																						<ul class="row-list">
+																							<?php foreach ($categories as $sub) : ?>
+																								<?php if($sub['parent_id']==$child['id']): ?>
+																							<li><a href="#"><?php echo ucwords($sub['name']); ?></a></li>
+																								<?php endif; ?>		
+																							<?php endforeach; ?>
 																							
 																						</ul>
+																						
 																					</div>
 																				</div>
 																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
+																			<?php endif; ?>
+																		<?php endforeach; ?>
 														
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="#" class="clearfix">
-																<strong>Baby & Kids</strong>
-																
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; display: none;">
-																<div class="content" style="display: none;">
-																	<div class="row">
-																		<div class="col-md-8">
-																			<div class="row">
-																				<div class="col-md-6 static-menu">
-																					<div class="menu">
-																						<ul>
-																							<li>
-																								<a href="#"  class="main-menu">Kids Clothing</a>
-																								<ul>
-																									<li><a href="#">Boys Clothing</a></li>
-																									<li><a href="#" >Girls Clothing</a></li>
-																									<li><a href="3.html#" >Baby boy Clothing</a></li>
-																									<li><a href="3.html#" >Baby Girl Clothing</a></li>
-																								</ul>
-																							</li>
-																							<li>
-																								<a href="#"  class="main-menu">Kids Footwear</a>
-																								<ul>
-																									<li><a href="#" >Boys Footwear</a></li>
-																									<li><a href="#" >Girls Footwear</a></li>
-																									<li><a href="#" >Baby Girl Footwear</a></li>
-																									<li><a href="#" >Baby Boy Footwear</a></li>
-																								</ul>
-																							</li>
-																						</ul>
-																					</div>
-																				</div>
-																				<div class="col-md-6 static-menu">
-																					<div class="menu">
-																						<ul>
-																							<li>
-																								<a href="#" class="main-menu">Toys</a>
-																								<ul>
-																									<li><a href="#" >Remote Control Toys</a></li>
-																									<li><a href="#" >Educational Toys</a></li>
-																									<li><a href="#" >Soft Toys</a></li>
-																								</ul>
-																							</li>
-																							<li>
-																								<a href="#"  class="main-menu">Baby Care</a>
-																								<ul>
-																									<li><a href="#" >Diapers</a></li>
-																									<li><a href="#" >Baby Bedding</a></li>
-																									<li><a href="#" >Baby Birthday Gifts</a></li>
-																								</ul>
-																							</li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-4">
-																			<span class="title-submenu">Featured Brands</span>
-																			<div class="col-sm-12 list-product">
-																				<div class="product-thumb">
-																					<div class="image pull-left">
-																						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/shop/product/35.jpg" width="80" alt="Filet Mign" title="Filet Mign" class="img-responsive"></a>
-																					</div>
-																					<div class="caption">
-																						<h4><a href="#">Barbie</a></h4>
-																						<div class="rating-box">
-																							<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						</div>
-																						
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-sm-12 list-product">
-																				<div class="product-thumb">
-																					<div class="image pull-left">
-																						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/shop/product/W1.jpg" width="80" alt="Dail Lulpa" title="Dail Lulpa" class="img-responsive"></a>
-																					</div>
-																					<div class="caption">
-																						<h4><a href="#">Disney</a></h4>
-																						<div class="rating-box">
-																							<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						</div>
-																						
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-sm-12 list-product">
-																				<div class="product-thumb">
-																					<div class="image pull-left">
-																						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/shop/product/141.jpg" width="80" alt="Canon EOS 5D" title="Canon EOS 5D" class="img-responsive"></a>
-																					</div>
-																					<div class="caption">
-																						<h4><a href="#">Puma</a></h4>
-																						
-																						<div class="rating-box">
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						</div>
-																						
-																					</div>
-																				</div>
-																			</div>
-																			
 																		</div>
 																	</div>
 																</div>
-															</div>
-														</li>
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="#" class="clearfix">
-																<strong>Home & Furniture</strong>
-																<img class="label-hot" src="<?php echo base_url(); ?>assets/public/image/theme/icons/hot-icon.png" alt="icon items">
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; right: auto;">
-																<div class="content" >
-																	<div class="row">
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Kitchen and Dining</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Pots & Pans </a></li>
-																						<li><a href="category.html">Pressure Cookers</a></li>
-																						<li><a href="category.html">Kitchen Tools</a></li>
-																					</ul>
-																					
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Furniture</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Beds</a></li>
-																						<li><a href="category.html">Sofas</a></li>
-																						<li><a href="category.html">TV Cabinets
-																							</a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="category.html" class="title-submenu">Demo </a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html ">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																					
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="#" class="title-submenu">Demo</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																						<li><a href="category.html">Demo</a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li class="with-sub-menu hover">
-															<p class="close-menu"></p>
-															<a href="category.html" class="clearfix">
-																<strong>Books & More</strong>
-																
-																<b class="caret"></b>
-															</a>
-															<div class="sub-menu" style="width: 100%; display: none;">
-																<div class="content" style="display: none;">
-																	<div class="row">
-																		<div class="col-md-8">
-																			<div class="row">
-																				<div class="col-md-6 static-menu">
-																					<div class="menu">
-																						<ul>
-																							<li>
-																								<a href="category.html"  class="main-menu">Demo</a>
-																								<ul>
-																									<li><a href="category.html">Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																								</ul>
-																							</li>
-																							<li>
-																								<a href="category.html"  class="main-menu">Demo</a>
-																								<ul>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																								</ul>
-																							</li>
-																						</ul>
-																					</div>
-																				</div>
-																				<div class="col-md-6 static-menu">
-																					<div class="menu">
-																						<ul>
-																							<li>
-																								<a href="category.html" class="main-menu">Demo</a>
-																								<ul>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																								</ul>
-																							</li>
-																							<li>
-																								<a href="category.html"  class="main-menu">Demo</a>
-																								<ul>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																									<li><a href="category.html" >Demo</a></li>
-																								</ul>
-																							</li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-4">
-																			<span class="title-submenu">Bestseller</span>
-																			<div class="col-sm-12 list-product">
-																				<div class="product-thumb">
-																					<div class="image pull-left">
-																						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/shop/product/35.jpg" width="80" alt="Filet Mign" title="Filet Mign" class="img-responsive"></a>
-																					</div>
-																					<div class="caption">
-																						<h4><a href="#">Filet Mign</a></h4>
-																						<div class="rating-box">
-																							<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						</div>
-																						<p class="price">Rs.1,202.00</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-sm-12 list-product">
-																				<div class="product-thumb">
-																					<div class="image pull-left">
-																						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/shop/product/W1.jpg" width="80" alt="Dail Lulpa" title="Dail Lulpa" class="img-responsive"></a>
-																					</div>
-																					<div class="caption">
-																						<h4><a href="#">Dail Lulpa</a></h4>
-																						<div class="rating-box">
-																							<span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						   <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						</div>
-																						<p class="price">Rs.78.00</p>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-sm-12 list-product">
-																				<div class="product-thumb">
-																					<div class="image pull-left">
-																						<a href="#"><img src="<?php echo base_url(); ?>assets/public/image/demo/shop/product/141.jpg" width="80" alt="Canon EOS 5D" title="Canon EOS 5D" class="img-responsive"></a>
-																					</div>
-																					<div class="caption">
-																						<h4><a href="#">Canon EOS 5D</a></h4>
-																						
-																						<div class="rating-box">
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																							<span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-																						</div>
-																						<p class="price">
-																							<span class="price-new">Rs.60.00</span>
-																							<span class="price-old">Rs.145.00</span>
-																							
-																						</p>
-																					</div>
-																				</div>
-																			</div>
-																			
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</li>
+															</li>
+														<?php endforeach; ?>
+													<?php endif; ?>
+														
 														
 														
 													</ul>

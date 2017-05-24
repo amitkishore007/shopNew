@@ -52,8 +52,8 @@
                                                     <td><img src="<?php echo base_url('uploads/'.$product->thumbnail); ?>" height='80' ></td>
                                                     <td><?php echo $product->title; ?></td>
                                                     <td><?php echo $product->username; ?></td>
-                                                    <td><?php echo $product->status ? "Published" : "Not published"; ?>  <input type="checkbox" checked class="make-switch product-status" data-on-text="Public" data-productId='<?php echo $product->product_id; ?>' data-off-text="Private" data-size="mini"></td>
-                                                   <td><input type="checkbox" checked class="make-switch hot-sale" data-on-text="Active" data-productId='<?php echo $product->product_id; ?>'  data-off-text="Inactive" data-size="mini"></td>
+                                                    <td><span id="status_<?php echo $product->product_id; ?>" class='<?php echo $product->status ? 'text-success' : 'text-danger'; ?>'><?php echo $product->status ? "Published" : "Not published"; ?></span>  <input type="checkbox" <?php echo $product->status ? 'checked' : ''; ?> class="make-switch product-status" data-on-text="Public" data-productId='<?php echo $product->product_id; ?>' data-off-text="Private" data-size="mini"></td>
+                                                   <td><input type="checkbox" <?php echo $product->hot_sale ? "checked" : ''; ?> class="make-switch hot-sale" data-on-text="Active" data-productId='<?php echo $product->product_id; ?>'  data-off-text="Inactive" data-size="mini"></td>
                                                     <td>
                                                     <a href="<?php echo base_url('product/edit/'.$product->product_id); ?>" class='btn btn-sm btn-info'>Edit</a>
                                                      <a class="btn red-mint btn-large delete-product " data-productId = "<?php echo $product->product_id; ?>" data-toggle="confirmation" data-original-title="Are you sure ?"

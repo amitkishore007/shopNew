@@ -261,7 +261,52 @@ class CategoryModel extends CI_Model
 	    return $branch;
 	}
 
+	public function set_home_category() {
 
+		$info = $this->input->post();
+
+		$type   = $info['type'];
+		$number = $info['number'];
+		$cat_id = $info['cat_id'];
+
+		$q = $this->db->where(['type'=>$type,'cat_number'=>$number])->get('home_category');
+
+		$output = 'error';
+
+		if ($q->num_rows()) {
+
+				 // perform update
+				$q1 = $this->db->where(['type'=>$type,'cat_number'=>$number])->update('home_category',['cat_id'=>$cat_id]);
+
+				if ($this->db->affected_rows()>=0) {
+					
+					$output = 'success';
+				} 
+		} else {
+			
+			$q1 = $this->db->insert('home_category',['type'=>$type,'cat_id'=>$cat_id,'cat_number'=>$number]);
+			
+			if ($this->db->affected_rows()) {
+				
+				$output = 'success';
+			}
+		}
+
+		return $output;
+	}
+
+	public function home_category() {
+
+		$this->db->select('categories.id as id, categories.name, home_category.type, home_category.cat_number');
+		$this->db->from('categories');
+		$this->db->join('home_category', 'categories.id = home_category.cat_id','left');
+		$q = $this->db->get();
+			
+		if ($q->num_rows()) {
+		
+			return $q->result();
+		}
+	}
 
 }			
 

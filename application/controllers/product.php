@@ -166,6 +166,35 @@ class Product extends CI_Controller
 	}
 
 
+	public function set_hot_sale() {
+
+		if ($this->input->post()) {
+			
+			$status = $this->productModel->set_hote_sale();
+
+			echo $status;
+
+		} else {
+
+			return redirect('product');
+		}
+	}
+
+	public function change_status() {
+
+		if ($this->input->post()) {
+		
+			$status = $this->productModel->set_status();
+
+			echo $status;
+
+		} else {
+
+			return redirect('product');
+		}
+	}
+
+
 	
 
 

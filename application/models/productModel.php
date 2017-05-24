@@ -160,7 +160,7 @@ class ProductModel extends CI_Model
 
 	public function all_products(){
 
-		$this->db->select('products.id as product_id,products.user_id as user_id,products.title,products.price,products.thumbnail,products.created_at,products.status,users.username');
+		$this->db->select('products.id as product_id,products.user_id as user_id,products.title,products.price,products.thumbnail,products.created_at,products.status,products.hot_sale,users.username');
 		$this->db->from('products');
 		$this->db->join('users', 'products.user_id = users.id');
 		$this->db->order_by('created_at','DESC');
@@ -213,6 +213,98 @@ class ProductModel extends CI_Model
 			
 			return $q->result();
 		}
+	}
+
+
+	public function set_hote_sale() {
+
+		$info = $this->input->post();
+
+		$product_id = (int) $info['id'];
+
+		$output = 'false';
+
+		$q = $this->db->where(['id'=>$product_id])->get('products');
+		
+			if ($q->num_rows()) {
+
+					if ($info['change']=='active') {
+
+						// update hot sale to 1
+							
+							$this->db->where(['id'=>$product_id])->update('products',['hot_sale'=>1]);
+
+							if ($this->db->affected_rows()>=0) {
+								
+								$output = 'true';
+							}
+						
+
+					} else {
+
+						// update hot sale to zero
+						$this->db->where(['id'=>$product_id])->update('products',['hot_sale'=>0]);
+
+							if ($this->db->affected_rows()>=0) {
+								
+								$output = 'true';
+							}
+					}
+					
+				} else {
+
+					$output = 'error';
+				}
+
+
+				return $output;				
+
+	}
+
+
+	public function set_status() {
+
+		$info = $this->input->post();
+
+		$product_id = (int) $info['id'];
+
+		$output = 'false';
+
+		$q = $this->db->where(['id'=>$product_id])->get('products');
+		
+			if ($q->num_rows()) {
+
+					if ($info['change']=='active') {
+
+						// update hot sale to 1
+							
+							$this->db->where(['id'=>$product_id])->update('products',['status'=>1]);
+
+							if ($this->db->affected_rows()>=0) {
+								
+								$output = 'true';
+							}
+						
+
+					} else {
+
+						// update hot sale to zero
+						$this->db->where(['id'=>$product_id])->update('products',['status'=>0]);
+
+							if ($this->db->affected_rows()>=0) {
+								
+								$output = 'true';
+							}
+					}
+					
+				} else {
+
+					$output = 'error';
+				}
+
+
+				return $output;				
+
 	}
 
 
