@@ -98,6 +98,108 @@ class AdminModel extends CI_Model
 	}
 
 
+
+	public function create_vandor() {
+
+		$info  = $this->input->post();
+
+		$this->load->library('form_validation');
+
+			$output = array();
+		
+			$output['status']  = "";
+			$output['name']    = "";
+			$output['email']  = "";
+			$output['password']    = "";
+					
+
+		if ($this->form_validation->run('vandor_form_validation')==FALSE) {
+			
+			$this->form_validation->set_error_delimiters('', '');
+			$output['status']   = "false";
+			$output['name']     = form_error('username');
+			$output['email']    = form_error('email');
+			$output['password'] = form_error('password');
+			$output['msg']      = 'error occured';
+
+		} else {
+
+			$info['password'] = md5($info['password']);
+			$info['user_type'] = 'vandor';
+
+			$this->db->insert('users',$info);
+
+			if ($this->db->affected_rows()) {
+					
+				
+				$output['status'] = "true";	
+				
+
+			} else {
+
+				$output['status'] = "false";
+				
+				$output['msg']   = "vandor could not be created, please try later";
+				
+			}
+
+
+		}
+
+		return $output;
+
+
+	}
+
+
+	public function all_user_type($type) {
+
+		$q = $this->db->where(['user_type'=>$type])->order_by('created_at','DESC')->get('users');
+
+		if ($q->num_rows()) {
+
+			return $q->result();
+		}
+	}
+
+	public function find_vandor($id) {
+
+		$q = $this->db->where(['id'=>$id])->get('users');
+
+		if ($q->num_rows()==1) {
+
+			return $q->row();
+		}
+	}
+
+	public function delete_vandor() {
+
+		$id = (int) $this->input->post('id');
+
+		$output = array('status'=>'false','msg'=>'');
+
+		$q = $this->db->where(['id'=>$id,'user_type'=>'vandor'])->get('users');
+
+		if ($q->num_rows()==1) {
+			
+			//perform the delete operation
+			$this->db->where(['id'=>$id])->delete('users');
+
+			if ($this->db->affected_rows()==1) {
+				
+				$output['status'] = 'true';
+				$output['msg']	 ='success';
+
+
+			}
+
+		} 
+
+		return $output;
+
+	}
+
+
 	
 
 

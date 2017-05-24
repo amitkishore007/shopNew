@@ -25,7 +25,7 @@ class Category extends CI_Controller
 
 	public function create() {
 
-		$data['main_content'] = 'admin/create_category';
+		$data['main_content'] = 'admin/category/create_category';
 
 		$data['categories'] = $this->categoryModel->allCategory();
 
@@ -55,17 +55,66 @@ class Category extends CI_Controller
 
 	}
 
+
+	public function edit_category() {
+
+
+		if ($this->input->post('category')) {
+
+
+			unset($_POST['category']);
+
+			// print_r($_POST);
+			$result = $this->categoryModel->edit_category();
+
+			echo json_encode($result);
+
+			
+		} else {
+
+			$this->dashboard();
+		}
+
+	}
+
 	public function delete(){
+
+		if ($this->input->post()) {
+			
+			$output = $this->categoryModel->deleteCategory();
+
+			echo json_encode($output);
+
+
+		} else {
+
+			return redirect('index');
+		}
 
 
 	}
 
-	public function edit(){
+	public function edit($id){
 
 
-		$data['main_content'] = 'admin/edit_category';
+		if (!isset($id)) {
+			
+			return redirect('category');
+		}
 
-		$this->load->view('admin_includes/template',$data);
+		$id  = (int) $id;
+		$data['main_content'] = 'admin/category/edit_category';
+		$data['category']	 = $this->categoryModel->find_category($id);
+		$data['categories']	 = $this->categoryModel->allCategory();
+
+		if ($data['category']) {
+			
+			$this->load->view('admin_includes/template',$data);
+		
+		} else {
+
+			return redirect('category');
+		}
 
 
 	}
@@ -73,8 +122,8 @@ class Category extends CI_Controller
 	public function index() {
 
 
-		$data['main_content'] = 'admin/category_list';
-
+		$data['main_content'] = 'admin/category/category_list';
+		$data['categories'] = $this->categoryModel->fetchCategoryTree();
 		$this->load->view('admin_includes/template',$data);
 
 

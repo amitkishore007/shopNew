@@ -18,13 +18,16 @@ class Product extends CI_Controller
 		
 
 		$this->load->model('productModel');
+		$this->load->model('categoryModel');
 
 	}
 
 
 	public function create() {
 
-		$data['main_content'] = 'admin/add_product';
+		$data['main_content'] = 'admin/product/add_product';
+		$data['categories'] = $this->categoryModel->allCategory();
+
 
 		$this->load->view('admin_includes/template',$data);
 
@@ -34,7 +37,27 @@ class Product extends CI_Controller
 
 		if ($this->input->post('add_product')) {
 			
+			unset($_POST['add_product']);
+
+// echo json_encode($_POST);
 			$result = $this->productModel->add_product();
+//
+			echo json_encode($result);
+
+		} else {
+
+			$this->index();
+		}
+	}
+
+	public function edit_product() {
+
+		if ($this->input->post('edit_product')) {
+			
+			unset($_POST['edit_product']);
+
+
+			$result = $this->productModel->edit_product();
 
 			echo json_encode($result);
 
@@ -46,15 +69,46 @@ class Product extends CI_Controller
 
 	public function delete(){
 
+		if ($this->input->post()) {
+			
+			$output = $this->productModel->deleteProduct();
+
+			echo json_encode($output);
+
+
+		} else {
+
+			return redirect('index');
+		}
+
 
 	}
 
-	public function edit(){
+	public function edit($id){
 
 
-		$data['main_content'] = 'admin/edit_product';
+		if (!isset($id)) {
+			
+			return redirect('product');
 
-		$this->load->view('admin_includes/template',$data);
+		} else {
+
+			$id = (int) $id;
+
+			$data['main_content'] = 'admin/product/edit_product';
+			$data['categories'] = $this->categoryModel->allCategory();
+			$data['product'] = $this->productModel->find_product($id);
+			if ($data['product']) {
+  							
+				$this->load->view('admin_includes/template',$data);
+			
+			} else {
+
+				return redirect('product');
+			}
+			
+		}
+
 
 
 	}
@@ -62,7 +116,8 @@ class Product extends CI_Controller
 	public function index() {
 
 
-		$data['main_content'] = 'admin/product_list';
+		$data['main_content'] = 'admin/product/product_list';
+		$data['products'] = $this->productModel->all_products();
 
 		$this->load->view('admin_includes/template',$data);
 
@@ -71,10 +126,12 @@ class Product extends CI_Controller
 
 	public function upload_image() {
           
-				$config['upload_path']   = './uploads/product/';
+				$config['upload_path']   = './uploads';
 				$config['allowed_types'] = 'gif|jpg|png';
 				$config['encrypt_name']  = TRUE;
 				$config['remove_spaces'] = TRUE;
+				$output = array('status'=>false,'name'=>'','error'=>'');
+
 
             $this->load->library('upload', $config);
 
@@ -83,8 +140,8 @@ class Product extends CI_Controller
                 $data = $this->upload->data();
 
 				$config['image_library']  = 'gd2';
-				$config['source_image']   = './uploads/product'.$data['file_name'];
-				$config['new_image']      = './uploads/product/';
+				$config['source_image']   = './uploads/'.$data['file_name'];
+				$config['new_image']      = './uploads/';
 				$config['maintain_ratio'] = TRUE;
 				$config['width']          = 400;
 				$config['height']         = 400;
@@ -96,8 +153,16 @@ class Product extends CI_Controller
 				}
 
 				// return $data['file_name'];
-				$this->db->insert('product_images',['name'=>$data['file_name'],'user_id'=>$this->session->userdata('admin_id')]);
+				// $this->db->insert('product_images',['name'=>$data['file_name'],'user_id'=>$this->session->userdata('admin_id')]);
+				$output['status'] = true;
+				$output['name']   = $data['file_name'];
+				
+				
+            } else {
+				$output['error'] = 'could not upload image, try later';
+
             }
+            echo json_encode($output);
 	}
 
 

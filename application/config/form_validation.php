@@ -55,7 +55,7 @@ $config = [
 							[
 							'field' => 'description',
 							'label' => 'Product Description',
-							'rules' => ''
+							'rules' => 'required'
         
 							],
 							[
@@ -94,7 +94,7 @@ $config = [
 							'rules' => 'required|is_natural'	
 							],
 							[
-							'field' => 'category',
+							'field' => 'category_id',
 							'label' => 'Category',
 							'rules' => 'required|is_natural'
  							],
@@ -105,6 +105,51 @@ $config = [
  							]
 
  							
+
+		],
+
+		'vandor_form_validation' =>[
+
+							[
+							'field' => 'username',
+							'label' => 'Username',
+							'rules' => 'required|min_length[3]'
+        
+							],
+							[
+							'field' => 'email',
+							'label' => 'Email address',
+							'rules' => 'required|valid_email|is_unique[users.email]'
+        
+							],
+							[
+							
+							'field' => 'password',
+							'label' => 'Password',
+							'rules' => 'required|min_length[5]'
+        
+							]
+
+		],
+
+		'about_form_validation'=> [
+
+							[
+							
+							'field' => 'title',
+							'label' => 'Title',
+							'rules' => 'required'
+        
+							],
+							[
+							
+							'field' => 'content',
+							'label' => 'Content',
+							'rules' => 'required'
+        
+							]
+
+
 
 		]
 ];

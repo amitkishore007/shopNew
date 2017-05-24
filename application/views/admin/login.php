@@ -93,6 +93,8 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="<?php echo base_url('assets/global/plugins/jquery-validation/js/jquery.validate.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo base_url('assets/global/plugins/jquery-validation/js/additional-methods.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo base_url('assets/global/plugins/bootstrap-toastr/toastr.min.js'); ?>" type="text/javascript"></script>
+           
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="<?php echo base_url('assets/global/scripts/app.min.js'); ?>" type="text/javascript"></script>

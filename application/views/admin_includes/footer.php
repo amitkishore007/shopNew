@@ -12,6 +12,7 @@
             </div>
             <!-- END FOOTER -->
         </div>
+       
         
         <!--[if lt IE 9]>
 <script src="<?php echo base_url('assets/global/plugins/respond.min.js'); ?>"></script>
@@ -46,7 +47,12 @@
            <script src="<?php echo base_url('assets/global/plugins/bootstrap-summernote/summernote.min.js'); ?>" type="text/javascript"></script>
            <script src="<?php echo base_url('assets/global/plugins/ladda/spin.min.js'); ?>" type="text/javascript"></script>
            <script src="<?php echo base_url('assets/global/plugins/ladda/ladda.min.js'); ?>" type="text/javascript"></script>
-           
+           <script src="<?php echo base_url('assets/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js'); ?>" type="text/javascript"></script>
+           <script src="<?php echo base_url('assets/global/plugins/jstree/dist/jstree.min.js'); ?>" type="text/javascript"></script>
+           <script src="<?php echo base_url('assets/global/plugins/dropzone/dropzone.min.js'); ?>" type="text/javascript"></script>
+           <script src="<?php echo base_url('assets/pages/scripts/form-dropzone.min.js'); ?>" type="text/javascript"></script>
+        
+      
            
            <!-- END PAGE LEVEL PLUGINS -->
            <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -57,14 +63,18 @@
            <script src="<?php echo base_url('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js'); ?>" type="text/javascript"></script>
            <script src="<?php echo base_url('assets/pages/scripts/ui-buttons-spinners.min.js'); ?>" type="text/javascript"></script>
            <script src="<?php echo base_url('assets/global/plugins/jquery-nestable/jquery.nestable.js'); ?>" type="text/javascript"></script>
+           <script src="<?php echo base_url('assets/pages/scripts/ui-confirmations.min.js'); ?>" type="text/javascript"></script>
+           <script src="<?php echo base_url('assets/global/plugins/bootstrap-toastr/toastr.min.js'); ?>" type="text/javascript"></script>
            
            
-           <!-- END PAGE LEVEL SCRIPTS -->
+
+            <!-- END PAGE LEVEL SCRIPTS -->
            <!-- BEGIN THEME GLOBAL SCRIPTS -->
            <script src="<?php echo base_url('assets/global/scripts/app.min.js'); ?>" type="text/javascript"></script>
            <script src="<?php echo base_url('assets/pages/scripts/ecommerce-products-edit.min.js'); ?>" type="text/javascript"></script>
            <script src="<?php echo base_url('assets/pages/scripts/components-select2.min.js'); ?>" type="text/javascript"></script>
            <!-- <script src="<?php echo base_url('assets/pages/scripts/ui-nestable.min.js'); ?>../assets/pages/scripts/ui-nestable.min.js" type="text/javascript"></script> -->
+           <script src="<?php echo base_url('assets/pages/scripts/ui-tree.min.js'); ?>" type="text/javascript"></script>
            
            <!-- END THEME GLOBAL SCRIPTS -->
            <!-- BEGIN THEME LAYOUT SCRIPTS -->

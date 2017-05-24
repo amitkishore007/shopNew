@@ -61,8 +61,12 @@
          <!-- <link href="../assets/global/plugins/ladda/ladda-themeless.min.css" rel="stylesheet" type="text/css" /> -->
          <?php echo link_tag('assets/global/plugins/jquery-nestable/jquery.nestable.css','stylesheet'); ?>
          <!-- <link href="../assets/global/plugins/jquery-nestable/jquery.nestable.css" rel="stylesheet" type="text/css" /> -->
+         <?php echo link_tag('assets/global/plugins/bootstrap-toastr/toastr.min.css','stylesheet'); ?>
+         <?php echo link_tag('assets/global/plugins/jstree/dist/themes/default/style.min.css','stylesheet'); ?>
+         <?php echo link_tag('assets/global/plugins/dropzone/dropzone.min.css','stylesheet'); ?>
+         <?php echo link_tag('assets/global/plugins/dropzone/basic.min.css','stylesheet'); ?>
          
-         <!-- END PAGE LEVEL PLUGINS -->
+           <!-- END PAGE LEVEL PLUGINS -->
          
          <!-- BEGIN THEME GLOBAL STYLES -->
          <?php echo link_tag('assets/global/css/components.min.css','stylesheet'); ?>
@@ -130,7 +134,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <!-- <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span> -->
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">Just Now </span>
@@ -141,7 +145,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <!-- <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span> -->
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">16 mins </span>
@@ -152,7 +156,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
+                                                        <!-- <img src="../assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span> -->
                                                     <span class="subject">
                                                         <span class="from"> Bob Nilson </span>
                                                         <span class="time">2 hrs </span>
@@ -163,7 +167,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <!-- <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span> -->
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">40 mins </span>
@@ -174,7 +178,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <!-- <img src="../assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span> -->
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">46 mins </span>
@@ -195,7 +199,7 @@
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" />
+                                    <!-- <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg" /> -->
                                     <span class="username username-hide-on-mobile"> Nick </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -280,12 +284,12 @@
                             
                           
                             <li class="heading">
-                                <h3 class="uppercase">Pages</h3>
+                                <h3 class="uppercase">Action</h3>
                             </li>
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-basket"></i>
-                                    <span class="title">eCommerce</span>
+                                    <span class="title">Shop</span>
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-menu">
@@ -319,9 +323,6 @@
                                 </ul>
                             </li>
 
-                            <li class="heading">
-                                <h3 class="uppercase">Category</h3>
-                            </li>
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-layers"></i>
@@ -345,9 +346,6 @@
                                 </ul>
                             </li>
 
-                            <li class="heading">
-                                <h3 class="uppercase">vandor</h3>
-                            </li>
                             <li class="nav-item  ">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="icon-user"></i>
@@ -362,7 +360,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item  ">
-                                        <a href="<?php echo base_url('admin/create_vandor'); ?>" class="nav-link ">
+                                        <a href="<?php echo base_url('admin/create'); ?>" class="nav-link ">
                                             <!-- <i class="icon-basket"></i> -->
                                             <span class="title">Create vandor</span>
                                         </a>
@@ -373,10 +371,96 @@
                                 </ul>
                             </li>
 
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Shop Items</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    
+                                    
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('logo'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-home"></i> -->
+                                            <span class="title"> logo</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('slider'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-home"></i> -->
+                                            <span class="title"> Slider</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('banner'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-home"></i> -->
+                                            <span class="title"> Banners</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('shop/collection'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-basket"></i> -->
+                                            <span class="title">Collections</span>
+                                        </a>
+                                    </li>
+
+                                    
+                                </ul>
+                            </li>
+
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Appearance</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('theme/about'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-home"></i> -->
+                                            <span class="title">About us</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('theme/contact'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-home"></i> -->
+                                            <span class="title">contact us</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('theme/privacy'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-basket"></i> -->
+                                            <span class="title">Privacy policy</span>
+                                        </a>
+                                    </li>
+
+                                     <li class="nav-item  ">
+                                        <a href="<?php echo base_url('theme/terms'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-basket"></i> -->
+                                            <span class="title">terms and condition</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('theme/faq'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-basket"></i> -->
+                                            <span class="title">FAQ</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item  ">
+                                        <a href="<?php echo base_url('theme/social'); ?>" class="nav-link ">
+                                            <!-- <i class="icon-basket"></i> -->
+                                            <span class="title">Social links</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             
                             
-                            
-                            
+                               
                         </ul>
                         <!-- END SIDEBAR MENU -->
                         <!-- END SIDEBAR MENU -->

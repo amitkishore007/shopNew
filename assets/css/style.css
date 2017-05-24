@@ -18,3 +18,36 @@
 
 	color: #000;
 }
+.product-msg{
+	    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 20px;
+    display: none;
+}
+
+.category-list ul{
+	
+	list-style: none;
+
+}
+.category-list ul li{
+	margin-top: 5px;
+	padding: 5px;
+	border:1px solid #ccc;
+	padding-bottom: 8px;
+	background: #fafafa;
+}
+.category-list ul li:hover{
+	    color: #2ea8e5;
+    background: #fff;
+}
+li .cat-action {
+	position: absolute;
+	right: 100px;
+	color: #333;
+}
+li .cat-action a{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	
+}
